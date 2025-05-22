@@ -12,6 +12,19 @@ body {
 }
 
 
+#menuToggle {
+     border : 0;
+     background-color: transparent;
+     font-size: 1.5rem;
+     margin-right: 12px;
+    display: none;
+}
+
+.nav-active {
+    transform: scaleY(100%);
+    display: block;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -131,6 +144,7 @@ header {
     top: 0;
     z-index: 1000;
     padding: 15px 0;
+
 }
 
 header .container {
@@ -734,20 +748,45 @@ nav ul li a:hover::after {
 @media (max-width: 768px) {
     header .container {
         flex-wrap: wrap;
+        align-items: end;
     }
 
     nav {
         order: 3;
         width: 100%;
         margin-top: 15px;
+        transform: scaleY(0);
+        position: absolute;
+        top: 40px;
+        left: 0px;
+        background-color: #fff;
+        transition: all 200ms ease-in-out;
+        z-index: -1;
+        transform-origin: top center;
+        padding: 16px;
     }
 
     nav ul {
         justify-content: center;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 1rem;
     }
 
+    #menuToggle {
+        display: block;
+    }
+
+
     nav ul li {
-        margin: 0 10px;
+        margin: 0px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    nav ul li:hover {
+        background-color: #f8f8f8;
     }
 
     .auth-buttons {
